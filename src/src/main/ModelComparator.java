@@ -15,8 +15,6 @@ import io.output.TerminalComparisonOutputWriter;
 import io.parser.ModelParser;
 
 public class ModelComparator {
-
-	private static final String ALPHABETS_UNEQUAL = "The Alphabets of the models must be equal!";
 	
 	private static final int DEFAULT_MAX_LENGTH = 3;
 	private static final String DFA_OUTPUT = "--dfa-output";
@@ -33,9 +31,6 @@ public class ModelComparator {
 		try {
 			ModelDefinition model1 = ModelParser.parseModelDefinition(new File(args[args.length - 2]));
 			ModelDefinition model2 = ModelParser.parseModelDefinition(new File(args[args.length - 1]));
-			
-			if(!model1.getActivities().equals(model2.getActivities())) 
-				throw new ModelParserException(ALPHABETS_UNEQUAL);
 			
 			Comparison comparison = Comparison.compareModels(model1, model2, maxLength);
 			if(dfaOutput) writer.handleDFAOutput(comparison);

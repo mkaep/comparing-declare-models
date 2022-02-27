@@ -28,10 +28,14 @@ class DFAProduct {
 	 * @return the product dfa
 	 */
 	static DFA productDFA(DFA dfa1, DFA dfa2, PDFALanguageType type) {
-		if(!dfa1.getAlphabet().equals(dfa2.getAlphabet()))
-			throw new  IllegalArgumentException("The alphabets must be equal!");
+		Alphabet alphabet = SetOperations.unionAlphabet(dfa1.getAlphabet(),dfa2.getAlphabet());
+		if(!dfa1.getAlphabet().equals(dfa2.getAlphabet())){
+			dfa1 = AutomatonFactory.createDFA(dfa1.getStates(),alphabet,dfa1.getTransitionFunction(),dfa1.getStartState(),dfa1.getAcceptingStates());
+			dfa2 = AutomatonFactory.createDFA(dfa2.getStates(),alphabet,dfa2.getTransitionFunction(),dfa2.getStartState(),dfa2.getAcceptingStates());
+		}
+		dfa1 = DFAAlgorithms.getCompleteDFA(dfa1);
+		dfa2 = DFAAlgorithms.getCompleteDFA(dfa2);
 		Set<BinaryTuple<State,State>> stateTuples = SetOperations.cartesianProduct(dfa1.getStates(),dfa2.getStates());
-		Alphabet alphabet = dfa1.getAlphabet();
 		BinaryTuple<State,State> startStateTuple = MathFactory.createBinaryTuple(dfa1.getStartState(), dfa2.getStartState());
 		Set<BinaryTuple<State,State>> acceptingStateTuples = type.getAcceptingStatesProduct(dfa1, dfa2);
 		TransitionFunction function = getProductDFATransitionFunction(alphabet,stateTuples,dfa1.getTransitionFunction(),dfa2.getTransitionFunction());
