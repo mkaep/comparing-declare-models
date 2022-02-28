@@ -123,7 +123,7 @@ class DFAMinimization {
 	}	
 
 	/**
-	 * This algorithm returns equivalence classes for the Myhill–Nerode equivalence relation of the input DFA. 
+	 * This algorithm returns equivalence classes for the Myhill-Nerode equivalence relation of the input DFA. 
 	 * @param dfa the dfa for which equivalence classes are constructed
 	 * @return the set of equivalence classes
 	 */

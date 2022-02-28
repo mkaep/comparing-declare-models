@@ -2,3 +2,5 @@
 *.classpath
 /bin/
 /tests/
+/target/
+.idea
