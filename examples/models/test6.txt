@@ -1,0 +1,3 @@
+a,b;
+existence(a,1);
+exclusive_choice1of2(a,b);

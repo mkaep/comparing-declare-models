@@ -29,7 +29,9 @@ public enum ConstraintType {
 	NOT_SUCCESSION,
 	NOT_CHAIN_SUCCESSION,
 	NOT_RESPONDED_EXISTENCE,
-	NOT_RESPONSE;
+	NOT_RESPONSE,
+	NOT_PRECEDENCE,
+	NOT_CHAIN_REPSONSE;
 	
 	public boolean isUnary() {
 		if(this == INIT || this == LAST)

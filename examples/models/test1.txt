@@ -1,0 +1,6 @@
+a,b,c,d,e;
+precedence(a,c);
+precedence(a,b);
+precedence(b,c);
+exclusiveChoice(b,c);
+exclusiveChoice(b,d);

@@ -10,4 +10,7 @@ public interface ComparisonOutputWriter {
 	
 	public void handleCreationException(ModelParserException exception);
 	public void handleFileNotFoundException();
+
+	public void handleMatrixOutput(Comparison comparison);
+	public void handleNormalizedMatrixOutput(Comparison comparison);
 }

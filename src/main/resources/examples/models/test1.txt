@@ -1,4 +1,2 @@
 a,b,c,d;
-init(a);
-precedence(a,d);
-precedence(b,c);
+NOT_PRECEDENCE(a,b);

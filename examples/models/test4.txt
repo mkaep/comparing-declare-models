@@ -1,0 +1,4 @@
+a,b,c,d,f;
+init(a);
+init(b);
+precedence(a,b);

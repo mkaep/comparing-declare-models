@@ -24,7 +24,7 @@ public class ModelComparator {
 	private static boolean dfaOutput = false;
 	private static int maxLength = DEFAULT_MAX_LENGTH;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		if(!checkOptions(args)) return;
 		ComparisonOutputWriter writer = new TerminalComparisonOutputWriter();
 		
@@ -33,6 +33,9 @@ public class ModelComparator {
 			ModelDefinition model2 = ModelParser.parseModelDefinition(new File(args[args.length - 1]));
 			
 			Comparison comparison = Comparison.compareModels(model1, model2, maxLength);
+			writer.handleMatrixOutput(comparison);
+			writer.handleNormalizedMatrixOutput(comparison);
+
 			if(dfaOutput) writer.handleDFAOutput(comparison);
 			writer.handleOutput(comparison);
 		} catch(FileNotFoundException e) {

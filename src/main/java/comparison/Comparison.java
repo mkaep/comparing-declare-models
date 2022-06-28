@@ -133,6 +133,40 @@ public class Comparison {
 		}
 		return Collections.unmodifiableList(wordsOf2NotIn1.get());
 	}
+
+	public List<List<Integer>> calculateDamerauLevenshtein() {
+		List<List<Integer>> result = new ArrayList<>();
+		getWordsOf1().forEach(wordOf1 -> {
+			List<Integer> wordOf1List = new ArrayList<>();
+			getWordsOf2().forEach(wordOf2 -> {
+				wordOf1List.add(DamerauLevenshtein.calculateDistance(wordOf1, wordOf2));
+			});
+			result.add(wordOf1List);
+		});
+		return result;
+	}
+
+	public List<List<Double>> calculateNormalizedDamerauLevenshtein() {
+		List<List<Double>> result = new ArrayList<>();
+		getWordsOf1().forEach(wordOf1 -> {
+			List<Double> wordOf1List = new ArrayList<>();
+			getWordsOf2().forEach(wordOf2 -> {
+				wordOf1List.add( 1 - (double) DamerauLevenshtein.calculateDistance(wordOf1, wordOf2)/getMaxCalculatedWordSize());
+			});
+			result.add(wordOf1List);
+		});
+		return result;
+	}
+
+	public int getMaxCalculatedWordSize() {
+		int maxWordsOf1 = this.getWordsOf1().stream().map(String::length).max(Integer::compareTo).get();
+		int maxWordsOf2 = this.getWordsOf2().stream().map(String::length).max(Integer::compareTo).get();
+		if (maxWordsOf1 > maxWordsOf2) {
+			return maxWordsOf1;
+		} else {
+			return maxWordsOf2;
+		}
+	}
 	
 	public int getMaxWordSize() {
 		return maxWordSize;

@@ -107,6 +107,10 @@ public class ConstraintDFAGenerator {
 			return responseDFA(alphabetSet,constraint.getSymbolParameters().get(0),constraint.getSymbolParameters().get(1));
 		case SUCCESSION:
 			return successionDFA(alphabetSet,constraint.getSymbolParameters().get(0),constraint.getSymbolParameters().get(1));
+		case NOT_PRECEDENCE:
+			return notPrecedenceDFA(alphabetSet,constraint.getSymbolParameters().get(0),constraint.getSymbolParameters().get(1));
+		case NOT_CHAIN_REPSONSE:
+			return notChainResponseDFA(alphabetSet,constraint.getSymbolParameters().get(0),constraint.getSymbolParameters().get(1));
 		default:
 			throw new UnsupportedOperationException();		
 		}
@@ -217,6 +221,40 @@ public class ConstraintDFAGenerator {
 		
 		return AutomatonFactory.createDFA(new HashSet<>(states),alphabet,function,startState,accStates);
 	}
+
+//	public static DFA atLeast2DFA(Set<Symbol> alphabetSet, Symbol a, int n) {
+//		if(alphabetSet == null || a == null)
+//			throw new IllegalArgumentException(EMSG1);
+//
+//		Alphabet alphabet = AutomatonFactory.createAlphabet(alphabetSet);
+//		State state0 = AutomatonFactory.createState("0");
+//		State state1 = AutomatonFactory.createState("1");
+//		State state2 = AutomatonFactory.createState("2");
+//
+//		Set<State> states= new HashSet<>(Arrays.asList(state0, state1, state2));
+//		Set<State> accStates = new HashSet<>(Arrays.asList(state2));
+//		State startState = state0;
+//
+//
+//
+//		Set<BinaryTuple<BinaryTuple<State,Symbol>,State>> transitions  = new HashSet<>();
+//		transitions.add(MathFactory.createTransition(state0, a, state1));
+//		transitions.add(MathFactory.createTransition(state0, b, state0));
+//		transitions.add(MathFactory.createTransition(state0, c, state0));
+//
+//		transitions.add(MathFactory.createTransition(state1, a, state2));
+//		transitions.add(MathFactory.createTransition(state1, b, state1));
+//		transitions.add(MathFactory.createTransition(state1, c, state1));
+//
+//		transitions.add(MathFactory.createTransition(state2, a, state2));
+//		transitions.add(MathFactory.createTransition(state2, b, state2));
+//		transitions.add(MathFactory.createTransition(state2, c, state2));
+//
+//		TransitionFunction function = MathFactory.createTransitionFunction(transitions);
+//		return AutomatonFactory.createDFA(new HashSet<>(states), alphabet, function, startState, accStates);
+//
+//	}
+
 	
 	public static DFA absenceDFA(Set<Symbol> alphabetSet, Symbol a, int n) {
 		if(alphabetSet == null || a == null)
@@ -310,6 +348,65 @@ public class ConstraintDFAGenerator {
 		transitions.add(MathFactory.createTransition(state0, b, state2));
 		transitions.addAll(createOtherwiseTransitions(alphabet,Arrays.asList(a,b),state0,state0));
 		transitions.addAll(createOtherwiseTransitions(alphabet,Collections.emptyList(),state1,state1));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Collections.emptyList(),state2,state2));
+		
+		TransitionFunction function = MathFactory.createTransitionFunction(transitions);
+		
+		
+		return AutomatonFactory.createDFA(states,alphabet,function,startState,accStates);
+	}
+	
+	public static DFA notPrecedenceDFA(Set<Symbol> alphabetSet, Symbol a, Symbol b) {
+		if(alphabetSet == null || a == null || b == null)
+			throw new IllegalArgumentException(EMSG1);
+		if(!alphabetSet.contains(a) || !alphabetSet.contains(b))
+			throw new IllegalArgumentException(EMSG2);
+		
+		Alphabet alphabet = AutomatonFactory.createAlphabet(alphabetSet);
+		
+		State state0 = AutomatonFactory.createState("0");
+		State state1 = AutomatonFactory.createState("1");
+		State state2 = AutomatonFactory.createState("2");
+		
+		Set<State> states = new HashSet<>(Arrays.asList(state0,state1,state2));
+		Set<State> accStates = new HashSet<>(Arrays.asList(state0,state1));
+		State startState = state0;
+		
+		Set<BinaryTuple<BinaryTuple<State,Symbol>,State>> transitions = new HashSet<>();
+		transitions.add(MathFactory.createTransition(state0, a, state1));
+		transitions.add(MathFactory.createTransition(state1, b, state2));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Arrays.asList(a),state0,state0));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Arrays.asList(b),state1,state1));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Collections.emptyList(),state2,state2));
+		
+		TransitionFunction function = MathFactory.createTransitionFunction(transitions);
+		
+		
+		return AutomatonFactory.createDFA(states,alphabet,function,startState,accStates);
+	}
+	
+	public static DFA notChainResponseDFA(Set<Symbol> alphabetSet, Symbol a, Symbol b) {
+		if(alphabetSet == null || a == null || b == null)
+			throw new IllegalArgumentException(EMSG1);
+		if(!alphabetSet.contains(a) || !alphabetSet.contains(b))
+			throw new IllegalArgumentException(EMSG2);
+		
+		Alphabet alphabet = AutomatonFactory.createAlphabet(alphabetSet);
+		
+		State state0 = AutomatonFactory.createState("0");
+		State state1 = AutomatonFactory.createState("1");
+		State state2 = AutomatonFactory.createState("2");
+		
+		Set<State> states = new HashSet<>(Arrays.asList(state0,state1,state2));
+		Set<State> accStates = new HashSet<>(Arrays.asList(state0,state1));
+		State startState = state0;
+		
+		Set<BinaryTuple<BinaryTuple<State,Symbol>,State>> transitions = new HashSet<>();
+		transitions.add(MathFactory.createTransition(state0, a, state1));
+		transitions.add(MathFactory.createTransition(state1, a, state1));
+		transitions.add(MathFactory.createTransition(state1, b, state2));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Arrays.asList(a),state0,state0));
+		transitions.addAll(createOtherwiseTransitions(alphabet,Arrays.asList(a,b),state1,state0));
 		transitions.addAll(createOtherwiseTransitions(alphabet,Collections.emptyList(),state2,state2));
 		
 		TransitionFunction function = MathFactory.createTransitionFunction(transitions);
