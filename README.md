@@ -10,7 +10,7 @@
 
 - Download and install Java 17
 - Download and install Maven
-- Either download the pre-configured JAR file (link will be added soon) or follow the steps below:
+- Either download the [pre-configured JAR file](/mkaep/comparing-declare-models/releases/latest/download/comparedeclaremodels-0.1.jar) or follow the steps below:
     1. Download the sources or clone this repository
     2. In folder with pom.xml run
         ```
