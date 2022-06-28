@@ -4,13 +4,13 @@
 
 *Excerpt from the paper "Comparing the expressiveness of Declare Process Models" (currently under review)*
 
-## Usage
+## Usage  
 
 ### Installation instructions
 
 - Download and install Java 17
 - Download and install Maven
-- Either download the [pre-configured JAR file](/mkaep/comparing-declare-models/releases/latest/download/comparedeclaremodels-0.1.jar) or follow the steps below:
+- Either download the [pre-configured JAR file](https://github.com/mkaep/comparing-declare-models/releases/download/comparing-declare-models-v1.1/comparedeclaremodels-0.1.jar) or follow the steps below:
     1. Download the sources or clone this repository
     2. In folder with pom.xml run
         ```
