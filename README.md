@@ -24,7 +24,7 @@
     ```
 - List supported declare constraints:
     ```
-    java -jar <generated jar file> --help
+    java -jar <generated jar file> --list-constraints
     ```
 - **Run model comparison for two models:** 
     ```
