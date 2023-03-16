@@ -55,8 +55,6 @@
 ## Citation
 If you use this tool in your paper, please cite the following article:
 ```
-% This file was created with Citavi 6.14.4.0
-
 @article{Schutzenmeier.2022,
  author = {Sch{\"u}tzenmeier, Nicolai and K{\"a}ppel, Martin and Ackermann, Lars and Jablonski, Stefan and Petter, Sebastian},
  year = {2022},
