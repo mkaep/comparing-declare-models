@@ -1,8 +1,8 @@
-# Automaton-based Comparison of Declare Process Models
+# Automaton-based comparison of Declare process models
 
 > The Declare process modeling language has been established within the research community for modeling so-called flexible processes. Declare follows the declarative modeling paradigm and therefore guarantees flexible process execution. For several reasons declarative process models turned out to be hard to read and to comprehend. Thus, it is also hard to decide whether two process models are equal with respect to their expressiveness, whether one model is completely covered by another one and whether two models share a common modeling space. [...] We follow an automaton-based approach by transforming Declare process models into finite state automatons and apply automata theory for interpreting the expressiveness of the Declare process models to be compared. 
 
-*Excerpt from the paper "Automaton-based Comparison of Declare Process Models"*
+*Excerpt from the paper "Automaton-based comparison of Declare process models"*
 
 ## Usage  
 
