@@ -63,9 +63,6 @@ If you use this tool in your paper, please cite the following article:
  journal = {Software and Systems Modeling},
  doi = {\url{10.1007/s10270-022-01069-y}}
 }
-
-
-
 ```
 
 ## Contact
