@@ -61,7 +61,7 @@ If you use this tool in your paper, please cite the following article:
  title = {Automaton-based comparison of Declare process models},
  issn = {1619-1374},
  journal = {Software and Systems Modeling},
- doi = {\url{10.1007/s10270-022-01069-y                      }}
+ doi = {\url{10.1007/s10270-022-01069-y}}
 }
 ```
 
