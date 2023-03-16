@@ -53,15 +53,15 @@
     ```
 
 ## Citation
-If you use this tool in your paper, please cite the following paper:
+If you use this tool in your paper, please cite the following article:
 ```
-@article{schuetzenmeier-2022-cdm,
-    title = "Comparing the expressiveness of Declare Process Models",
-    author = "Sch\"{u}tzenmeier, Nicolai and K\"{a}ppel, Martin and 
-        Ackermann, Lars and Petter, Sebastian and Jablonski, Stefan",
-    journal = "Software and Systems Modeling (POEM 2021 Special Section)",
-    year = "Currently under review",
-    publisher = "Springer"
+@article{Schutzenmeier.2022,
+ author = {Sch{\"u}tzenmeier, Nicolai and K{\"a}ppel, Martin and Ackermann, Lars and Jablonski, Stefan and Petter, Sebastian},
+ year = {2022},
+ title = {Automaton-based comparison of Declare process models},
+ issn = {1619-1374},
+ journal = {Software and Systems Modeling},
+ doi = {\url{10.1007/s10270-022-01069-y                      }}
 }
 ```
 
