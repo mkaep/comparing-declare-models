@@ -55,13 +55,20 @@
 ## Citation
 If you use this tool in your paper, please cite the following article:
 ```
-@article{Schutzenmeier.2022,
- author = {Sch{\"u}tzenmeier, Nicolai and K{\"a}ppel, Martin and Ackermann, Lars and Jablonski, Stefan and Petter, Sebastian},
- year = {2022},
- title = {Automaton-based comparison of Declare process models},
- issn = {1619-1374},
- journal = {Software and Systems Modeling},
- doi = {\url{10.1007/s10270-022-01069-y}}
+@article{schuetzenmeier.2023,
+author = {Sch\"{u}tzenmeier, Nicolai and K\"{a}ppel, Martin and Ackermann, Lars and Jablonski, Stefan and Petter, Sebastian},
+title = {Automaton-Based Comparison of Declare Process Models},
+year = {2022},
+issue_date = {Apr 2023},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+volume = {22},
+number = {2},
+issn = {1619-1366},
+url = {https://doi.org/10.1007/s10270-022-01069-y},
+doi = {10.1007/s10270-022-01069-y},
+journal = {Softw. Syst. Model.},
+pages = {667–685}
 }
 ```
 
