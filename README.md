@@ -55,7 +55,7 @@
 ## Citation
 If you use this tool in your paper, please cite the following article:
 ```
-@article{schuetzenmeier.2023,
+@article{schuetzenmeier.2022,
 author = {Sch\"{u}tzenmeier, Nicolai and K\"{a}ppel, Martin and Ackermann, Lars and Jablonski, Stefan and Petter, Sebastian},
 title = {Automaton-Based Comparison of Declare Process Models},
 year = {2022},
